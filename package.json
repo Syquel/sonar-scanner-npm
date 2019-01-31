@@ -1,18 +1,18 @@
 {
-  "name": "sonarqube-scanner",
+  "name": "@syquel/sonarqube-scanner",
   "description": "SonarQube/SonarCloud Scanner for the JavaScript world",
   "version": "2.1.3",
-  "homepage": "https://github.com/bellingard/sonar-scanner-npm",
+  "homepage": "https://github.com/Syquel/sonar-scanner-npm",
   "author": {
     "name": "Fabrice Bellingard",
     "email": "fabrice.bellingard@sonarsource.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bellingard/sonar-scanner-npm.git"
+    "url": "git+https://github.com/Syquel/sonar-scanner-npm.git"
   },
   "bugs": {
-    "url": "https://github.com/bellingard/sonar-scanner-npm/issues"
+    "url": "https://github.com/Syquel/sonar-scanner-npm/issues"
   },
   "license": "LGPL-3.0",
   "main": "dist/index.js",
