@@ -1,6 +1,7 @@
 # Using trusty because the Travis Addon for SonarQube.com requires Java 8
 dist: trusty
 sudo: required
+language: node_js
 
 node_js:
   - 6
