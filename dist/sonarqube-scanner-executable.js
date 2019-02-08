@@ -63,14 +63,22 @@ function getSonarQubeScannerExecutable(passExecutableCallback) {
   if (isWindows()) {
     binaryExtension = '.bat'
   }
+
+  var relativeSonarExecutablePath = path.join('bin', `sonar-scanner${binaryExtension}`)
+
+  // #1 - Try to find the scanner via environment variables
+  if (process.env.SONAR_SCANNER_HOME) {
+    passExecutableCallback(path.join(process.env.SONAR_SCANNER_HOME, relativeSonarExecutablePath))
+    return
+  }
+
+  // #2 - Try to execute the scanner
   var platformExecutable = path.join(
-    installFolder,
-    `sonar-scanner-${platformBinariesVersion}-${targetOS}`,
-    'bin',
-    `sonar-scanner${binaryExtension}`
+      installFolder,
+      `sonar-scanner-${platformBinariesVersion}-${targetOS}`,
+      relativeSonarExecutablePath
   )
 
-  // #1 - Try to execute the scanner
   var executableFound = false
   try {
     log('Checking if executable exists: ' + platformExecutable)
@@ -86,7 +94,7 @@ function getSonarQubeScannerExecutable(passExecutableCallback) {
     return
   }
 
-  // #2 - Download the binaries and unzip them
+  // #3 - Download the binaries and unzip them
   //      They are located at https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${version}-${os}.zip
   log('Proceed with download of the platform binaries for SonarQube Scanner...')
   log('Creating ' + installFolder)
