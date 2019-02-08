@@ -1,10 +1,10 @@
 # Using trusty because the Travis Addon for SonarQube.com requires Java 8
 dist: trusty
 sudo: required
-language: node_js
 
+language: node_js
 node_js:
-  - 6
+  - 10
 
 addons:
   sonarcloud:
@@ -12,20 +12,9 @@ addons:
     token:
       secure: "vjrx+JqjNmc14CiUTp3Emtruxde5QUPGwZNvYuZcWIobOM/JbtSIIx6GHNsxOKY6lgn0hAZVayZPd8aUaONEYWOm5R0N/lxatey5o+bU05KANAZ7faJTShQVMvUQeLYxU2SNfJFPThTjVGuDkUeZK9XsOWaQ2MMa2R7pltnUzxsqf9oQaw6lgvc9rVf6wxxbqeq8lbGqXkdH4vTzPFDTJdoMkm2cphBOy7w0gnwKpJk4HQjzbU+8d/IjR3afEsr34JN/b0RkVN96mcV80aPx7M8CXiar9f8tvJhpnbUOHzHHaBQB12vouj6GtIbAivlff4If8viJweK8c6twbNslUHFPXaik4k2Olti7dUj2cg/w/92wc2AxiCDv5ygx5Z4Q0es5qE1R9pZpEepCe8Wt8Pi0+HJe9lDf3iXU6EsMXhE7EBM9HLMMwzZT0V7JpHqMTfj6Gt8HuGeZpJkhz/ynJEJlbPCQb2rlzR4rWWBZODx5F27oxwO79qc78VyM3XpERd/6rcaQuW2RZWgTMwuU+u9UlgAjpKGYg21jMoyjBwLPuR7umSR4FCQ7NqiCYphLhwOU0vQwFxYOYm0Mmrj1VTZhbbvVyPIRVii9hLmqAPrtcwUsnvIfgLF1gMU2ozbJyIA/jwt+MrLcTgT88JSdOp9uLW9mMBsB0Jpoum8Pm0k="
 
-install:
-  # Install packages.
-  - npm install
+install: npm ci
 
-before_script:
-  # Need Gulp ro trigger the analysis on SonarQube.com
-  - npm install -g gulp
+# Actually calls Gulp - the SonarQube analysis is the default task
+script: npx gulp
 
-script:
-  # Actually calls Gulp - the SonarQube analysis is the default task
-  - gulp
-
-cache:
-  directories:
-    - $HOME/.npm
-    - $HOME/.sonar/cache
-    - $HOME/.sonar/native-sonar-scanner
+cache: npm
