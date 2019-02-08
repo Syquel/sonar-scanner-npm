@@ -18,3 +18,11 @@ install: npm ci
 script: npx gulp
 
 cache: npm
+
+deploy:
+  provider: npm
+  api_key:
+    secure: jxFoUX7a7T4oLNplJ0CxwAg2TzQzpsINHxB4scVuHtpDYcfKoB2fnTtMEy1xRY1j8rXLyIC1XggngBHBwSK4pHmreGJ0m0acGZEfj1xF6cf8jy4pOcHkDKWk6IIOrnqCSfsXaYidu6/8qcFMHKZBTpwrzRlmtDYPtxfs4dqvv56WQCyaLdquwSJVGRJw/ZhkI8pIRo2ZelfQDluoRd7pPn0MGEJE42f8EEiM30nD0Iq1r6KKKIAZMp12arGKKuhXizP5FRbWbJkUwY/HAy3Hibg6k9YB2u2J7CXzvtH9UCEArjLg6DPoO2B1bN8WbfVn8LXWqhPdsrS9YzCjHMq4jaaq5wI2oAWWm7q/NIDvrw55z91CwTuErXJnZR5ThX+GE6lZ4F2W54pqHK43sEImbvQNLF7GcHUzqR/SaA1FebdPwh9KhafdSCT1famkQc/jV49p76V3WB/N372GI+rte+GMqxHPazlAAziqSJozVfIBrhnXwJvWylB3ORFrPoMtkt82jzSkmj4QEk1t4o/UFRr6JGVLhnvlXRGeKJZMEwWQCRVt/p2Zian7swmF/vZH+K+rZewQaZfe6fED0eu9C2yNotiuzqUg+DG9ayDNE/bPy4Ot8NVzbUKvQ3fMsdi6q7L/H9mnvguf3BoPaLIazkRLyyGLG9mkXXmXn6QIc54=
+  email: frederik.boster@syquel-systems.de
+  on:
+    tags: true
